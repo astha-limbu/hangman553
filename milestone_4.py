@@ -9,22 +9,28 @@ class Hangman:
         self.num_letter = len({self.word}) # The number of UNIQUE letters in the word that have not been guessed yet
         self.list_of_guesses = [self.word_guessed] # A list of the guesses that have already been tried
     
-    # convert guessed letter to lowercase, checks if the guess is in the word print a message saying "Good guess! {guess} is in the word."
+    # checks if the guess is in the word print a message saying "Good guess! {guess} is in the word."
     def check_guess(self, guess):
+        # convert guessed letter to lowercase,
         guess = guess.lower()
+
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
+
             # replace the corresponding "_" in the word_guessed with the guess
             for index, letter in enumerate(self.word):
                 if letter == guess:
                     self.word_guessed[index] = guess
+
             # reduce the number of unique letters left to guess
             self.num_letter -= 1
+        
+        # reduce life and show lives left
         else:
-            # reduce life and show lives left
             self.num_lives -= 1
-            print(f"Sorry, {letter} is not in the word.")
+            print(f"Sorry, {guess} is not in the word.")
             print(f"You have {self.num_lives} lives left.")
+        print(f"Your word so far : {self.word_guessed}")
 
     def ask_for_input(self):
         while True: # while loop and set the condition to True
@@ -44,6 +50,6 @@ class Hangman:
                 #  append the guess to the list_of_guesses
                 self.list_of_guesses.append(guess)
 
-word_list = ["apple", "banana", "cherry", "date", "fig"]
+word_list = ['lychee', 'mango', 'papaya', 'orange', 'guava']
 game = Hangman(word_list)
 game.ask_for_input()
