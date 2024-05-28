@@ -2,6 +2,9 @@ import random
 
 class Hangman:
     def __init__(self, word_list, num_lives=5):
+        '''
+        Initializes the Hangman game with a list of words and number of lives.
+        '''
         self.word_list = word_list
         self.num_lives = num_lives
         self.word = random.choice(word_list)
@@ -9,8 +12,11 @@ class Hangman:
         self.num_letter = len({self.word}) # The number of UNIQUE letters in the word that have not been guessed yet
         self.list_of_guesses = [self.word_guessed] # A list of the guesses that have already been tried
     
-    # checks if the guess is in the word print a message saying "Good guess! {guess} is in the word."
     def check_guess(self, guess):
+        '''
+        Checks if the guessed letter is in the word and updates the game state.
+        Reveals the guessed letter in the word_guessed list
+        '''
         # convert guessed letter to lowercase,
         guess = guess.lower()
 
@@ -30,14 +36,19 @@ class Hangman:
             self.num_lives -= 1
             print(f"Sorry, {guess} is not in the word.")
             print(f"You have {self.num_lives} lives left.")
+
         print(f"Your word so far : {self.word_guessed}")
 
     def ask_for_input(self):
-        while True: # while loop and set the condition to True
-            guess = input("Please guess a letter: ") # Ask the user to guess a letter
+        '''
+        Prompts the user to guess a letter. 
+        Validates the guessed letter.
+        '''
+        while True: 
+            guess = input("Please guess a letter: ") 
 
             # if the guess is NOT a single alphabetical character print a message saying "Invalid letter. Please, enter a single alphabetical character."
-            if guess.isalpha() == False or len(guess) != 1:
+            if not guess.isalpha() or len(guess) != 1:
                 print("Invalid letter. Please, enter a single alphabetical character")
 
             # if the guess is already in the list_of_guesses print a message saying "You already tried that letter!"
