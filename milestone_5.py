@@ -5,7 +5,7 @@ class Hangman:
         ''' Initializes the Hangman game with a list of words and number of lives.'''
         self.word_list = word_list
         self.num_lives = num_lives
-        self.word = random.choice(word_list)
+        self.word = random.choice(word_list).lower()
         self.word_guessed = ['_' for letter in self.word] # A list of the letters of the word, with _ for each letter not yet guessed
         self.num_letters = len(set(self.word)) # The number of UNIQUE letters in the word that have not been guessed yet
         self.list_of_guesses = [self.word_guessed] # A list of the guesses that have already been tried
@@ -27,7 +27,6 @@ class Hangman:
             print(f"Sorry, {guess} is not in the word.")
             print(f"You have {self.num_lives} lives left.")
         print(f"Your word so far : {self.word_guessed}")
-        print(self.num_letters)
 
     def ask_for_input(self):
         '''
@@ -35,7 +34,7 @@ class Hangman:
         Validates the guessed letter.
         '''
         while True: 
-            guess = input("Please guess a letter: ").lower()
+            guess = input("Please guess a letter: ")
             if not guess.isalpha() or len(guess) != 1:
                 print("Invalid letter. Please, enter a single alphabetical character")
             elif guess in self.list_of_guesses:
@@ -47,7 +46,7 @@ class Hangman:
 
 def play_game(word_list):
     ''' Starts the Hangman game and continues until the player wins or loses.'''
-    game = Hangman(word_list, num_lives = 5)    
+    game = Hangman(word_list, num_lives = 5)
     while True:
         if game.num_lives == 0:
             print("You lost!")
@@ -62,5 +61,5 @@ def play_game(word_list):
 
 
 if __name__ == '__main__':
-    word_list = ['lychee', 'mango', 'papaya', 'orange', 'guava']
+    word_list = ['Lychee', 'Mango', 'Papaya', 'Orange', 'Guava']
     play_game(word_list)
