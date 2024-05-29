@@ -1,10 +1,7 @@
 # Hangman
 
 ## About the project
-
-A description of the project: what it does, the aim of the project, and what you learned
-
-Aim - Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain amount of attempts. This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
+Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain amount of attempts. This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
  
 ## Features 
 - Randomly selects a word from a predefined list for each game.
@@ -23,14 +20,16 @@ The game starts with the player having 5 lives. Each incorrect guess reduces the
 - Repeated Guess: If the letter has already been guessed, the player is notified that they have already tried that letter.
 
 ### what you have learnt 
-- Python basics and advanced, OOP
+- Python basics and advanced
 - imports
 - class creation
 - using the __init__ method to initialise attributes
-- creating methods to check validity of user input and determine if the guess is correct.
+- creating methods
 
 ## Installation instructions
-
+You are able to start the game locally in your machine by typing the following commands in the command line:
+`git clone URL`
+> To install git using homebrew run the command `brew install git`
 
 ## Usage instructions
 
